@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    @model Stucation.Models.CounterDto
+
+    <div class="col-xl-3 col-xxl-3 col-sm-6">
+        <div class="widget-stat card bgl-success">
+            <div class="card-body">
+                <div class="media">
+                    <span class="mr-3">
+                        <i class="la la-users"></i>
+                    </span>
+                    <div class="media-body text-white">
+                        <p class="mb-1">Total Students</p>
+                        <h3 class="text-white">@Model.studentCounter</h3>
+                        <div class="progress mb-2 bg-white">
+                            <div class="progress-bar progress-animated bg-light" style="width: 80%"></div>
+                        </div>
+                        <small>Student count</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-xxl-3 col-sm-6">
+        <div class="widget-stat card bg-blue">
+            <div class="card-body">
+                <div class="media">
+                    <span class="mr-3">
+                        <i class="la la-book"></i>
+                    </span>
+                    <div class="media-body text-white">
+                        <p class="mb-1">Total Module</p>
+                        <h3 class="text-white">@Model.moduleCounter</h3>
+                        <div class="progress mb-2 bg-white">
+                            <div class="progress-bar progress-animated bg-light" style="width: 50%"></div>
+                        </div>
+                        <small>Module count</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-xxl-3 col-sm-6">
+        <div class="widget-stat card bg-success">
+            <div class="card-body">
+                <div class="media">
+                    <span class="mr-3">
+                        <i class="la la-graduation-cap"></i>
+                    </span>
+                    <div class="media-body text-white">
+                        <p class="mb-1">Total Course</p>
+                        <h3 class="text-white">@Model.courseCounter</h3>
+                        <div class="progress mb-2 bg-white">
+                            <div class="progress-bar progress-animated bg-light" style="width: 76%"></div>
+                        </div>
+                        <small>course count</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-xxl-3 col-sm-6">
+        <div class="widget-stat card bg-secondary">
+            <div class="card-body">
+                <div class="media">
+                    <span class="mr-3">
+                        <i class="la la-building"></i>
+                    </span>
+                    <div class="media-body text-white">
+                        <p class="mb-1">Total Department</p>
+                        <h3 class="text-white">1</h3>
+                        <div class="progress mb-2 bg-white">
+                            <div class="progress-bar progress-animated bg-light" style="width: 30%"></div>
+                        </div>
+                        <small>Department count</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

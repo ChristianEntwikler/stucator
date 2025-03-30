@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "View Assessments";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>All Assessments</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Home/index">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Assessment</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">All Assessments</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row tab-content">
+            <div id="list-view" class="tab-pane fade active show col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">All Assessments List  </h4>
+                        <a href="~/Assessment/AddAssessment" class="btn btn-primary">+ Add new</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @model List<Stucation.Models.AssessmentDto>
+                            <table id="example3" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>Assessment ID</th>
+                                        <th>Title</th>
+                                        <th>Details</th>
+                                        <th>Score</th>
+                                        <th>Module</th>
+                                        <th>Date Created</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var data in Model)
+                                    {
+                                        <tr>
+                                            <td><strong>@data.assessmentId</strong></td>
+                                            <td>@data.assessmentTitle</td>
+                                            <td>@data.assessmentDetail</td>
+                                            <td>@data.assessmentTotalScore</td>
+                                            <td>@data.moduleId</td>
+                                            <td>@data.dateCreated</td>
+                                            <td>
+                                                <a href="~/Module/EditAssessment?i=@data.moduleId" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-sm btn-danger" style="display:none;"><i class="la la-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
