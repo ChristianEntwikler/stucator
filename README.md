@@ -4,7 +4,7 @@ Managing students, courses, modules, and assessments in a department. <br/>Solvi
 <br/>To develop a plug-and-play solution for any institution to adapt to and use.<br/><br/>
 
 <p><b>INSTALLATION</b><br/>
-The source code can be found in my git repo: <a href='https://github.com/ChristianEntwikler/stucator'>https://github.com/ChristianEntwikler/stucator</a> as the source code is larger than 35mb
+The source code can be found in my git repo: <a href='https://github.com/ChristianEntwikler/stucator'>https://github.com/ChristianEntwikler/stucator</a> as the source code is larger than 35mb <br/><br/>
 To install the app, you need to add at least Dot Net framework 4.6 running on a Windows 10 or above operating system
 </p>
 <p><b>DEPLOYMENT</b><br/>
