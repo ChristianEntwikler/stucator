@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "View Student Assessments";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row tab-content">
+            <div id="list-view" class="tab-pane fade active show col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">All Student Assessment List  </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @model List<Stucation.Models.ViewStudentAssessmentDto>
+                            <table id="example3" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Assessment ID</th>
+                                        <th>Student ID</th>
+                                        <th>Name</th>
+                                        <th>Assessment Title</th>
+                                        <th>Score</th>
+                                        <th>Date Created</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+                                        <tr>
+                                            <td><strong>@data.studentAssessment.studentAssessmentId</strong></td>
+                                            <td>@data.studentAssessment.AssessmentId</td>
+                                            <td>@data.studentAssessment.studentId</td>
+                                            <td>@data.student.surname @data.student.firstName @data.student.middleName</td>
+                                            <td>@data.assessment.assessmentTitle</td>
+                                            <td>@data.studentAssessment.score</td>
+                                            <td>@data.studentAssessment.dateCreated</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

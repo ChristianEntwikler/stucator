@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "View Course Modules";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row tab-content">
+            <div id="list-view" class="tab-pane fade active show col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">All Course Modules List  </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @model List<Stucation.Models.ViewCourseModuleDto>
+                            <table id="example3" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Module ID</th>
+                                        <th>Student ID</th>
+                                        <th>Course Title</th>
+                                        <th>Module Name</th>
+                                        <th>Term</th>
+                                        <th>Date Created</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+                                        <tr>
+                                            <td><strong>@data.courseModule.courseModuleId</strong></td>
+                                            <td>@data.courseModule.moduleId</td>
+                                            <td>@data.courseModule.courseId</td>
+                                            <td>@data.course.courseName</td>
+                                            <td>@data.module.moduleName</td>
+                                            <td>@data.module.term</td>
+                                            <td>@data.courseModule.dateCreated</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

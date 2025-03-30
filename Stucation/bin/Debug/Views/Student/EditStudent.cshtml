@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Edit Student";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>Edit Student</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Home/index">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Students</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Edit Student</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-12 col-xxl-12 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Basic Info</h5>
+            </div>
+            <div class="card-body">
+                @model Stucation.Models.StudentDto
+
+                @using (Html.BeginForm("EditData", "Student", FormMethod.Post))
+                {
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Student ID</label>
+                            @Html.TextBoxFor(model => model.studentId, new { placeholder = "Input Student ID", @class = "form-control", @readonly = "true" })
+                            @Html.ValidationMessageFor(model => model.studentId)
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            @Html.TextBoxFor(model => model.firstName, new { placeholder = "Input First Name", @class = "form-control", @readonly = "true" })
+                            @Html.ValidationMessageFor(model => model.firstName)
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Middle Name</label>
+                            @Html.TextBoxFor(model => model.middleName, new { placeholder = "Input Middle Name", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.middleName)
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            @Html.TextBoxFor(model => model.surname, new { placeholder = "Input Surname", @class = "form-control", @readonly = "true" })
+                            @Html.ValidationMessageFor(model => model.surname)
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            @Html.TextBoxFor(model => model.email, new { placeholder = "Input Email", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.email)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Course</label>
+
+                            @Html.TextBoxFor(model => model.courseId, new { placeholder = "Input Course", @class = "form-control", @readonly="true" })
+                            @Html.ValidationMessageFor(model => model.courseId)
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Gender</label>
+                            @Html.DropDownListFor(model => model.gender, new SelectList(new[] { "Gender", "Male", "Female" }), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.gender)
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Mobile Number</label>
+                            @Html.TextBoxFor(model => model.mobileNumber, new { placeholder = "Input Mobile Number", @class = "form-control", @readonly = "true" })
+                            @Html.ValidationMessageFor(model => model.mobileNumber)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Date of Birth</label>
+                            @Html.TextBoxFor(model => model.dob, new { placeholder = "Input Date of Birth", name = "datepicker", @class = "datepicker-default form-control", id = "datepicker1", @readonly = "true" })
+                            @Html.ValidationMessageFor(model => model.dob)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            @Html.TextAreaFor(model => model.address, new { placeholder = "Input Address", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.address)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Status</label>
+                            @Html.DropDownListFor(model => model.status, new SelectList(new[] { "Active", "Inactive" }), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.status)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <button type="submit" class="btn btn-primary">update</button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

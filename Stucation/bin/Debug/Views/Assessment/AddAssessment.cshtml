@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Add Assessment";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>Add Assessment</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Home/index">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Assessment</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Add Assessment</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Assessment Details</h4>
+            </div>
+            <div class="card-body">
+                @model Stucation.Models.AssessmentDto
+
+                @using (Html.BeginForm("SubmitData", "Assessment", FormMethod.Post))
+                {
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Assessment Title</label>
+                            @Html.TextBoxFor(model => model.assessmentTitle, new { placeholder = "Input assessment title", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.assessmentTitle)
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label class="form-label">Score</label>
+                            @Html.TextBoxFor(model => model.assessmentTotalScore, new { placeholder = "Input assessment score", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.assessmentTotalScore)
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Assessment Details</label>
+                            @Html.TextAreaFor(model => model.assessmentDetail, new { placeholder = "Input assessment details", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.assessmentDetail)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Module</label>
+
+                            @Html.DropDownListFor(model => model.moduleId, ViewBag.ModuleList as SelectList, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.moduleId)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Status</label>
+                            @Html.DropDownListFor(model => model.status, new SelectList(new[] { "Active", "Inactive" }), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.status)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Status</label>
+                            @Html.DropDownListFor(model => model.status, new SelectList(new[] { "Active", "Inactive" }), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.status)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <button type="submit" class="btn btn-primary">submit</button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

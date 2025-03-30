@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Stucator</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon.png">
+    <link rel="stylesheet" href="~/vendor/jqvmap/css/jqvmap.min.css">
+    <link rel="stylesheet" href="~/vendor/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="~/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/skin-2.css">
+
+    <!-- Pick date -->
+    <link rel="stylesheet" href="~/vendor/pickadate/themes/default.css">
+    <link rel="stylesheet" href="~/vendor/pickadate/themes/default.date.css">
+
+    <link href="~/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header bg-info">
+            <a href="index.html" class="brand-logo">
+                <img class="logo-abbr" src="~/images/logo1.png" alt="">
+                <img class="logo-compact" src="~/images/logo-text-white.png" alt="">
+                <img class="brand-title" src="~/images/logo-text-white.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="~/images/profile/profile.png" width="20" alt="">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                       @Html.ActionLink("Logout", "Login", "login")
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="dlabnav">
+            <div class="dlabnav-scroll">
+                <ul class="metismenu nav nav-list" id="menu">
+                    <li class="nav-label first">Main Menu</li>
+                    <li>
+                        <a class="ai-icon" href="~/Home/index" aria-expanded="false">
+                            <i class="la la-home"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-users"></i>
+                            <span class="nav-text">Student</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>@Html.ActionLink("All Students", "ViewStudents", "Student")</li>
+                            <li>@Html.ActionLink("Add Student", "AddStudent", "Student")</li>
+                            <li>@Html.ActionLink("View Student Modules", "ViewStudentModules", "Student")</li>
+                            <li>@Html.ActionLink("View Student Assessment", "ViewStudentAssessments", "Student")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-graduation-cap"></i>
+                            <span class="nav-text">Courses</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>@Html.ActionLink("All Courses", "ViewCourses", "Course")</li>
+                            <li>@Html.ActionLink("Add Course", "AddCourse", "Course")</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-book"></i>
+                            <span class="nav-text">Module</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>@Html.ActionLink("All Modules", "ViewModules", "Module")</li>
+                            <li>@Html.ActionLink("Add Module", "AddModule", "Module")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-edit"></i>
+                            <span class="nav-text">Assessment</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li>@Html.ActionLink("All Assessments", "ViewAssessments", "Assessment")</li>
+                            <li>@Html.ActionLink("Add Assessment", "AddAssessment", "Assessment")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+            <div class="container-fluid">
+
+                <div class="container body-content">
+                    @RenderBody()
+
+
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p> &copy; @DateTime.Now.Year - Stucator from <a href="christian.enebeli100@gmail.com" target="_blank">christian.enebeli100@gmail.com</a> </p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="~/js/custom.min.js"></script>
+    <script src="~/js/dlabnav-init.js"></script>
+
+    <!-- Chart ChartJS plugin files -->
+    <script src="~/vendor/chart.js/Chart.bundle.min.js"></script>
+
+    <!-- Chart piety plugin files -->
+    <script src="~/vendor/peity/jquery.peity.min.js"></script>
+
+    <!-- Chart sparkline plugin files -->
+    <script src="~/vendor/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Demo scripts -->
+    <script src="~/js/dashboard/dashboard-3.js"></script>
+
+    <!-- Svganimation scripts -->
+    <script src="~/vendor/svganimation/vivus.min.js"></script>
+    <script src="~/vendor/svganimation/svg.animation.js"></script>
+
+    <!-- Datatable -->
+    <script src="~/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins-init/datatables.init.js"></script>
+
+    <!-- pickdate -->
+    <script src="~/vendor/pickadate/picker.js"></script>
+    <script src="~/vendor/pickadate/picker.time.js"></script>
+    <script src="~/vendor/pickadate/picker.date.js"></script>
+
+    <!-- Pickdate -->
+    <script src="~/js/plugins-init/pickadate-init.js"></script>
+
+</body>
+</html>

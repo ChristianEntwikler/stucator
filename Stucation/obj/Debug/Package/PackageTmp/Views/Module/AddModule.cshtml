@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Add Module";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>Add Module</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Home/index">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Module</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Add Module</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Module Details</h4>
+            </div>
+            <div class="card-body">
+                @model Stucation.Models.ModuleDto
+
+                @using (Html.BeginForm("SubmitData", "Module", FormMethod.Post))
+                {
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Module Name</label>
+                            @Html.TextBoxFor(model => model.moduleName, new { placeholder = "Input module name", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.moduleName)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Term (Trimester/Semester)</label>
+                            @Html.DropDownListFor(model => model.term, new SelectList(new[] { "Term", "1", "2", "3" }), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.term)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Module Details</label>
+                            @Html.TextAreaFor(model => model.moduleDetails, new { placeholder = "Input module Details", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.moduleDetails)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">Status</label>
+                            @Html.DropDownListFor(model => model.status, new SelectList(new[] { "Active", "Inactive" }), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.status)
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <button type="submit" class="btn btn-primary">submit</button>
+                    </div>
+                </div>
+                }
+                </div>
+        </div>
+    </div>
+</div>
+
+

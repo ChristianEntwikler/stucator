@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "View Modules";
+}
+
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>All Modules</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/Home/index">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Module</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">All Modules</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row tab-content">
+            <div id="list-view" class="tab-pane fade active show col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">All Modules List  </h4>
+                        <a href="~/Module/AddModule" class="btn btn-primary">+ Add new</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @model List<Stucation.Models.ModuleDto>
+                            <table id="example3" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>Module ID</th>
+                                        <th>Name</th>
+                                        <th>Term</th>
+                                        <th>Details</th>
+                                        <th>Date Created</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    @foreach (var data in Model)
+                                    {
+                                        <tr>
+                                            <td><strong>@data.moduleId</strong></td>
+                                            <td>@data.moduleName</td>
+                                            <td>@data.term</td>
+                                            <td>@data.moduleDetails</td>
+                                            <td>@data.dateCreated</td>
+                                            <td>
+                                                <a href="~/Module/EditModule?i=@data.moduleId" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-sm btn-danger" style="display:none;"><i class="la la-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
